@@ -29,7 +29,7 @@ public class BD{
             if (connection == null) {
                 Properties properties = loadProperties();
                 String url = properties.getProperty("db.url");
-                connection = DriverManager.getConnection("url", properties);
+                connection = DriverManager.getConnection(url, properties);
 
             }
         }catch(SQLException sqlException){
