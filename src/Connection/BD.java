@@ -2,9 +2,7 @@ package Connection;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class BD{
@@ -36,5 +34,27 @@ public class BD{
             throw new SQLException("Erro ao conectar ao banco de dados");
         }
         return connection;
+    }
+
+    //Métodos para fechar a conexão com o Statement e ResultSet
+    public static void closeStatement(Statement st){
+        if(st != null) {
+            try {
+                st.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static void closeResultSet(ResultSet rs){
+        if(rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
     }
 }
