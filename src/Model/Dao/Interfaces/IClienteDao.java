@@ -1,4 +1,4 @@
-package Model.Dao;
+package Model.Dao.Interfaces;
 
 import Model.Entities.Cliente;
 import java.util.List;
