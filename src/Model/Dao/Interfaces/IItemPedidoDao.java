@@ -5,9 +5,8 @@ import java.util.List;
 
 public interface IItemPedidoDao {
 
-    void inserir(ItemPedido itemPedido);
-    List<ItemPedido> listarPorPedido(int idPedido);
-    void atualizarQuantidade(int idPedido, int idProduto, int novaQuantidade);
-    void deletar(int idPedido, int idProduto);
+    void insert(ItemPedido itemPedido);
+    List<ItemPedido> listAll(int idPedido);
+    void deleteById(int idPedido, int idProduto); // Caso pedido estiver como pendente podera ser cancelado
 
 }

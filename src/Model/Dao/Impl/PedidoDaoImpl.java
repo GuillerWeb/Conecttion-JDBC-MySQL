@@ -27,7 +27,7 @@ public class PedidoDaoImpl implements IPedidoDao {
         pedido.setIdPedido(resultSet.getInt("id_pedido"));
         pedido.setIdCliente(resultSet.getInt("id_cliente"));
         pedido.setData(resultSet.getDate("data").toLocalDate());
-        pedido.setTotal(resultSet.getDouble("total"));
+        pedido.setTotal(resultSet.getBigDecimal("total"));
         pedido.setStatus(resultSet.getString("status"));
         return pedido;
     }
@@ -41,7 +41,7 @@ public class PedidoDaoImpl implements IPedidoDao {
             preparedStatement = connection.prepareStatement(sqlInsert);
             preparedStatement.setInt(1, pedido.getIdCliente());
             preparedStatement.setDate(2, Date.valueOf(pedido.getData()));
-            preparedStatement.setDouble(3, pedido.getTotal());
+            preparedStatement.setBigDecimal(3, pedido.getTotal());
             preparedStatement.setString(4, pedido.getStatus());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
