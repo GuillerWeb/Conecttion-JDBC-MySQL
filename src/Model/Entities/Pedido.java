@@ -9,6 +9,8 @@ public class Pedido {
     private double total;
     private String status;
 
+    public Pedido() {};
+
     // Construtor completo para busca no Banco.
     public Pedido(int idPedido, int idCliente, LocalDate data, double total, String status) {
         this.idPedido = idPedido;

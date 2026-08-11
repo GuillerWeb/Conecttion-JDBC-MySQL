@@ -1,6 +1,6 @@
 package Model.Dao.Impl;
 
-import Model.Dao.IClienteDao;
+import Model.Dao.Interfaces.IClienteDao;
 import Model.Entities.Cliente;
 import Connection.BD;
 import java.sql.Connection;
