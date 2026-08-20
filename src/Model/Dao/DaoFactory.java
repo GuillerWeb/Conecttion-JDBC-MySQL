@@ -2,9 +2,11 @@ package Model.Dao;
 
 import Connection.BD;
 import Model.Dao.Impl.ClienteDaoImpl;
+import Model.Dao.Impl.ItemPedidoDaoImpl;
 import Model.Dao.Impl.PedidoDaoImpl;
 import Model.Dao.Impl.ProdutoDaoImpl;
 import Model.Dao.Interfaces.IClienteDao;
+import Model.Dao.Interfaces.IItemPedidoDao;
 import Model.Dao.Interfaces.IPedidoDao;
 import Model.Dao.Interfaces.IProdutoDao;
 
@@ -22,5 +24,8 @@ public class DaoFactory {
     }
     public static IPedidoDao createPedidoDao() throws SQLException, IOException{
         return new PedidoDaoImpl(BD.getConnection());
+    }
+    public static IItemPedidoDao createItemPedidoDao() throws SQLException, IOException{
+        return new ItemPedidoDaoImpl(BD.getConnection());
     }
 }

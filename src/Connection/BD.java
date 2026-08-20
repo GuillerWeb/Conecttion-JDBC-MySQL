@@ -22,19 +22,24 @@ public class BD{
     public static Connection connection = null;
     //Classe onde a conexão com o Banco vai ser efetuada por meio do arquivo properties e da url
     public static Connection getConnection() throws IOException, SQLException {
-
-        try{
-            if (connection == null) {
+        if (connection == null || connection.isClosed()) {
+            try {
                 Properties properties = loadProperties();
-                String url = properties.getProperty("db.url");
-                connection = DriverManager.getConnection(url, properties);
 
+                String url = properties.getProperty("db.url");
+
+                if (url == null || url.isBlank()) {
+                    throw new SQLException("A propriedade 'db.url' não foi encontrada ou está vazia no arquivo db.properties.");
+                }
+                connection = DriverManager.getConnection(url, properties);
+            } catch (SQLException sqlException) {
+                throw new SQLException("Erro ao conectar ao banco de dados: " + sqlException.getMessage(), sqlException);
             }
-        }catch(SQLException sqlException){
-            throw new SQLException("Erro ao conectar ao banco de dados");
         }
         return connection;
     }
+
+
 
     //Métodos para fechar a conexão com o Statement e ResultSet
     public static void closeStatement(Statement st){

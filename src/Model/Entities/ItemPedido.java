@@ -3,6 +3,7 @@ package Model.Entities;
 import java.math.BigDecimal;
 
 public class ItemPedido {
+    String nomeProduto;
     private int idPedido;
     private int idProduto;
     private int quantidade;
@@ -30,11 +31,14 @@ public class ItemPedido {
     public void setSubtotal(BigDecimal subtotal) {this.subtotal = subtotal;}
     public void setIdPedido(int idPedido) {this.idPedido = idPedido;}
     public void setIdProduto(int idProduto) {this.idProduto = idProduto;}
+    public String getNomeProduto() {return nomeProduto;}
+    public void setNomeProduto(String nomeProduto) {this.nomeProduto = nomeProduto;}
 
     @Override
     public String toString() {
         return "ItemPedido{" +
-                "idPedido=" + idPedido +
+                "nomeProduto='" + nomeProduto + '\'' +
+                ", idPedido=" + idPedido +
                 ", idProduto=" + idProduto +
                 ", quantidade=" + quantidade +
                 ", preco_unitario=" + preco_unitario +

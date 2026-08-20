@@ -7,6 +7,7 @@ public interface IItemPedidoDao {
 
     void insert(ItemPedido itemPedido);
     List<ItemPedido> listAll(int idPedido);
-    void deleteById(int idPedido, int idProduto); // Caso pedido estiver como pendente podera ser cancelado
+    List<ItemPedido> listAllByClient(int idCliente);
+    void deleteById(int idPedido, int idProduto); // Caso pedido estiver como pendente podera ser cancelad
 
 }
