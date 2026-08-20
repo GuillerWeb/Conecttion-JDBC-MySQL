@@ -19,7 +19,7 @@ public class Cliente{
     }
 
     //Construtor para buscar no banco
-    public Cliente(String nome, int idNome, String telefone, String email, String cidade) {
+    public Cliente(String nome, int idCliente, String telefone, String email, String cidade) {
         this.nome = nome;
         this.idCliente = idCliente;
         this.telefone = telefone;
